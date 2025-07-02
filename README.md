@@ -99,5 +99,61 @@ GET /row_sum?table_name=INITIAL INVESTMENT&row_name=Tax Credit (if any )=
   "sum": 10.0
 }
 ```
+## Setup Instructions
 
+### 1. Install Requirements
 
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Run the Server
+
+```bash
+uvicorn main:app --reload --port 9090
+```
+
+## File Structure
+
+```bash
+.
+├── Data/
+│   └── capbudg.xls                # Excel file to parse
+├── .gitignore
+├── main.py                        # FastAPI server implementation
+├── postman_collection.json        # Collection of sample requests for testing
+├── requirements.txt               # Required packages
+└── README.md                      # Project documentation
+```
+
+## Testing with Postman
+
+- Use the included postman_collection.json to test all endpoints.
+- Base URL: http://localhost:9090
+- Import the collection into Postman and run the requests interactively.
+
+## Potential Improvements
+
+- Support .xlsx files using openpyxl
+- Include POST endpoint for uploading Excel files dynamically
+- Add response caching for repeated queries
+- Add error messages for table/row not found
+- Create a Streamlit frontend for non-technical users
+
+Missed Edge Cases
+
+- Duplicate table names
+- Tables with mixed types in rows
+- Inconsistent row names (merged or multiline cells)
+- Completely empty Excel files
+- Malformed numeric formats or hidden characters
+
+Author Notes
+
+- Designed with reusability and clarity in mind
+- All responses follow JSON format
+- All logic is contained in a single main.py for simplicity (can be modularized)
+
+## License
+
+This repository is created as part of a technical assignment for evaluation purposes.
