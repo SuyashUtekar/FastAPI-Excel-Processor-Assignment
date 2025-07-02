@@ -46,3 +46,9 @@ Base URL: `http://localhost:9090`
     "BOOK VALUE & DEPRECIATION"
   ]
 }
+```
+
+### 2. `GET /get_table_details?table_name=...`
+
+**Description**: Lists all row names under the specified table.  
+**Query Parameter**: A table is recognized as a fully **uppercase** cell with all NaNs in the rest of the row.
