@@ -54,11 +54,50 @@ Base URL: `http://localhost:9090`
 **Query Parameter**: 
 - **table_name** (required): Name of the table, must match one from **/list_tables**.
 
-#### Example Response
-```json
+#### Example Request
+```sql
 GET /get_table_details?table_name=INITIAL INVESTMENT
 
 ```
 
+#### Example Response
+```json
+{
+  "tables": [
+    "INITIAL INVESTMENT",
+    "CASHFLOW DETAILS",
+    "WORKING CAPITAL",
+    "GROWTH RATES",
+    "YEAR",
+    "SALVAGE VALUE",
+    "OPERATING CASHFLOWS",
+    "BOOK VALUE & DEPRECIATION"
+  ]
+}
+```
+
+### 3. `GET /row_sum?table_name=...&row_name=...`
+
+**Description**: Returns the sum of numeric values for the given row under the specified table.
+**Logic**: 
+- Skips initial NaNs
+- Starts summing once a numeric value is found
+- Stops when it encounters a NaN after starting
+- Interprets values like 0.1 (with a trailing % implied) as 10.0
+
+#### Example Request
+```sql
+GET /row_sum?table_name=INITIAL INVESTMENT&row_name=Tax Credit (if any )=
+
+```
+
+#### Example Response
+```json
+{
+  "table_name": "INITIAL INVESTMENT",
+  "row_name": "Tax Credit (if any )=",
+  "sum": 10.0
+}
+```
 
 
