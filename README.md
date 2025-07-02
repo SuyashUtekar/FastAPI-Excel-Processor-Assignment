@@ -140,7 +140,7 @@ uvicorn main:app --reload --port 9090
 - Add error messages for table/row not found
 - Create a Streamlit frontend for non-technical users
 
-Missed Edge Cases
+## Missed Edge Cases
 
 - Duplicate table names
 - Tables with mixed types in rows
@@ -148,7 +148,7 @@ Missed Edge Cases
 - Completely empty Excel files
 - Malformed numeric formats or hidden characters
 
-Author Notes
+## Author Notes
 
 - Designed with reusability and clarity in mind
 - All responses follow JSON format
